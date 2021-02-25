@@ -1,0 +1,240 @@
+/* Global ================================== */
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --very-dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+  --dark-grayish-magenta: hsl(303, 10%, 53%);
+  --light-grayish-magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html {
+  font-size: 93.75%;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  background-image: url('../images/bg-pattern-top-mobile.svg'), url('../images/bg-pattern-bottom-mobile.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, bottom right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-family: 'Spartan', sans-serif;
+  position: relative;
+}
+
+/* Mobile ================================== */
+/* Article ================================== */
+article {
+  flex: 1;
+  margin: 4.5rem 1.5rem;
+}
+
+/* Presentation ================================== */
+.presentationContainer {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.presentationContainer h1 {
+  margin-bottom: 1rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--very-dark-magenta);
+}
+
+.presentationContainer p {
+  color: var(--dark-grayish-magenta);
+}
+
+/* Rating ================================== */
+.ratingContainer {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ratingContainer .rating {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+  background: var(--light-grayish-magenta);
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--very-dark-magenta);
+  text-align: center;
+}
+
+.ratingContainer .rating .stars {
+  margin-bottom: .5rem;
+}
+
+.ratingContainer .rating .stars img {
+  margin: 0 .2rem;
+}
+
+/* Comments ================================== */
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentsContainer .comment {
+  margin-bottom: 1rem;
+  padding: 2.5rem;
+  background: var(--very-dark-magenta);
+  border-radius: 10px;
+  color: var(--white);
+}
+
+.comment .profile {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.comment .profile img {
+  margin-right: 1rem;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.comment .profile div > h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.comment .profile div > p {
+  font-weight: 400;
+  color: var(--soft-pink);
+}
+
+.comment > p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--light-grayish-magenta);
+}
+
+/* Footer ================================== */
+footer {
+  padding: .5rem;
+  opacity: .7;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: darkmagenta;
+  text-decoration: none;
+}
+
+/* Desktop ================================== */
+@media(min-width: 768px) {
+  /* Global ================================== */
+
+  .container {
+    background-image: url('../images/bg-pattern-top-desktop.svg'), url('../images/bg-pattern-bottom-desktop.svg');
+  }
+
+  /* Grid ================================== */
+  .ratingContainer { grid-area: r; }
+  .commentsContainer { grid-area: c; }
+
+  /* Article ================================== */
+  article {
+    margin: 9rem 10rem 5rem;
+    display: grid;
+    grid-template-areas:
+    "p r"
+    "c c";
+  }
+
+  /* Presentation ================================== */
+  .presentationContainer {
+    width: 75%;
+    grid-area: p;
+    text-align: left;
+  }
+
+  .presentationContainer h1 {
+    font-size: 3rem;
+  }
+
+  /* Rating ================================== */
+  .ratingContainer {
+    justify-content: center;
+  }
+
+  .ratingContainer .rating {
+    width: calc(100% - 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .ratingContainer .rating:first-child {
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
+  
+  .ratingContainer .rating:last-child {
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  /* Comments ================================== */
+  .commentsContainer {
+    /* background: lightpink; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .commentsContainer .comment {
+    margin: 0;
+    width: calc(100% - 1rem);
+    height: calc(100% - 2rem);
+    align-self: center;
+    justify-self: center;
+  }
+
+  .commentsContainer .comment:first-child {
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
+
+  .commentsContainer .comment:last-child {
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  .comment .profile {
+    margin-bottom: 1.5rem;
+  }
+
+  .comment p {
+    font-size: .9rem;
+  }
+
+  /* Footer ================================== */
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
